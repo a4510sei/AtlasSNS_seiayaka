@@ -11,9 +11,12 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+//Laravel起動確認ページ用
+Route::get('/', function () {
+
+  return view('welcome');
+});
 // Route::get('/home', 'HomeController@index')->name('home');
 
 //Auth::routes();
