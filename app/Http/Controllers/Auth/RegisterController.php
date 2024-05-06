@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 
@@ -39,25 +40,60 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return $Validator = Validator::make($data, [
+            'username' => 'required|string|min:2|max:12',
+            'mail' => 'required|string|email|min:5|max:40 |unique:users',
+            'password' => 'required|string|alpha_num|min:8|max:20|confirmed',
+            'password_confirmation' => 'required|string|alpha_num|min:8|max:20'
+        ]);
+
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function create(array $data)
+    {
+        return User::create([
+            'username' => $data['username'],
+            'mail' => $data['mail'],
+            'password' => $data['password'],
+        ]);
+    }
+
+
+    // public function registerForm(){
+    //     return view("auth.register");
+    // }
+
     public function register(Request $request){
         if($request->isMethod('post')){
+            $data = $request->input();
+        $errors = $this->validator($data);
 
-            $username = $request->input('username');
-            $mail = $request->input('mail');
-            $password = $request->input('password');
+ if ($errors->fails()) {
+    return redirect('/register')
+    ->withInput()
+    ->withErrors($errors);
+  }
+            $this->create($data);
+        $username = $request->input('username');
+        return view('auth.added',['username'=>$username]);
 
-            User::create([
-                'username' => $username,
-                'mail' => $mail,
-                'password' => bcrypt($password),
-            ]);
-
-            return redirect('added');
         }
         return view('auth.register');
     }
 
-    public function added(){
-        return view('auth.added');
-    }
+
 }

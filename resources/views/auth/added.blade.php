@@ -1,14 +1,20 @@
 @extends('layouts.logout')
 
+<div id="clear">
 @section('content')
 
-<div id="clear">
-  <p>〇〇さん</p>
-  <p>ようこそ！AtlasSNSへ！</p>
-  <p>ユーザー登録が完了しました。</p>
-  <p>早速ログインをしてみましょう。</p>
 
-  <p class="btn"><a href="/login">ログイン画面へ</a></p>
+  <div class=top>
+  <h1>{{$username}}さん</h1>
+  <h1>ようこそ！AtlasSNSへ！</h1>
+</div>
+
+  <div class=bottom>
+  <h2>ユーザー登録が完了しました。</h2>
+  <h2>早速ログインをしてみましょう。</h2>
+</div>
+
+  <div class="btn"><a href="/login">ログイン画面へ</a></div>
 </div>
 
 @endsection
