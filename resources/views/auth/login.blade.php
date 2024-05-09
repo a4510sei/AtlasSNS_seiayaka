@@ -7,7 +7,7 @@
 
 <p>AtlasSNSへようこそ</p>
 
-{{ Form::label('e-mail') }}
+{{ Form::label('mail') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
 {{ Form::label('password') }}
 {{ Form::password('password',['class' => 'input']) }}
