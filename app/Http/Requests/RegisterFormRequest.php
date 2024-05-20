@@ -23,6 +23,12 @@ class RegisterFormRequest extends FormRequest
      */
     public function rules()
     {
+        // Ensure to return an empty array for GET requests
+        if ($this->isMethod('get')) {
+            return [];
+        }
+
+        // Validation rules for POST requests
         return [
             'username' => 'required',
             'mail' => 'required|email',

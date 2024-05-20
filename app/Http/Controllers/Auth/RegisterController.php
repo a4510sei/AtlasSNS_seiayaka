@@ -43,7 +43,7 @@ class RegisterController extends Controller
     }
 
     public function register(RegisterFormRequest $request){
-        // if($request->isMethod('post')){←POSTだったら
+        if($request->isMethod('post')){  //←POSTだったら
         // postの処理
             $username = $request->input('username');
             $mail = $request->input('mail');
@@ -57,10 +57,10 @@ class RegisterController extends Controller
 
             $request->session()->put('username', $username);
             return redirect('added');
-
+        }
         // }
         // getの処理
-        // return view('auth.register');←GETだったら
+        return view('auth.register');  //←GETだったら
     }
 
     public function registerView(){
@@ -68,6 +68,7 @@ class RegisterController extends Controller
     }
 
     public function added(){
+        $username =$_POST["username"];
         return view('auth.added');
     }
 }

@@ -5,7 +5,7 @@
 
 
   <div class=top>
-  <h1>{{$username}}さん</h1>
+  <h1>{{$users->username}}さん</h1>
   <h1>ようこそ！AtlasSNSへ！</h1>
 </div>
 
