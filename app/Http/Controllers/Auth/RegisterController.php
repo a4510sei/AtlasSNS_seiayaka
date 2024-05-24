@@ -55,20 +55,21 @@ class RegisterController extends Controller
                 'password' => bcrypt($password),
             ]);
 
-            $request->session()->put('username', $username);
+            $request->session()->put('username', $username);// sessionデータをセット
             return redirect('added');
-        }
+        }else{
         // }
         // getの処理
         return view('auth.register');  //←GETだったら
+        }
     }
 
     public function registerView(){
         return view('auth.register');
     }
 
-    public function added(){
-        $username =$_POST["username"];
-        return view('auth.added');
+    public function added(RegisterFormRequest $request){
+            $username = $request->session()->get('username');// sessionデータから値を取得
+            return view('auth.added',['username'=>$username]);
     }
 }

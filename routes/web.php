@@ -35,7 +35,7 @@ Route::post('/added', 'Auth\RegisterController@added');
 //Route::group(['middleware' => 'auth'], function() {
 //ログイン中のページ
 //auth認証解決後、middleware('auth')付きに戻す
-//    Route::get('/top','PostsController@index')->middleware('auth');
+    Route::get('/top','PostsController@index')->middleware('auth');
     Route::get('/top','PostsController@index');
     Route::get('/profile','UsersController@profile');
 
