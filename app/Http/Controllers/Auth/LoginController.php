@@ -46,14 +46,15 @@ class LoginController extends Controller
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと
             if(Auth::attempt($data)){
-            $mail = $data['mail'];
-            $password = $data['password'];
-            //HASH化
-            $password = bcrypt($password);
-            $user = Auth::user();
-            $username = $user->username;
-//                return view('/home',compact('username'));
-                return redirect()->route('/home', ['username' => $username]);
+//            $mail = $data['mail'];
+//            $password = $data['password'];
+//            //HASH化
+//            $password = bcrypt($password);
+//            $user = Auth::user();
+//            $username = $user->username;
+//            return view('/home',compact('username'));
+//            return redirect()->route('/home', ['username' => $username]);
+                return redirect('/home');
 
             }
         }
