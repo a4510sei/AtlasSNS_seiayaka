@@ -32,15 +32,15 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //auth認証後のみ表示
-//Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function() {
 //ログイン中のページ
 //auth認証解決後、middleware('auth')付きに戻す
-    Route::get('/top','PostsController@index')->middleware('auth');
-    Route::get('/top','PostsController@index');
+    Route::get('/home','HomeController@index');
+    Route::post('/home','HomeController@index');
     Route::get('/profile','UsersController@profile');
 
     Route::get('/search','UsersController@index');
 
     Route::get('/follow-list','PostsController@index');
     Route::get('/follower-list','PostsController@index');
-//});
+});
