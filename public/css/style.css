@@ -33,6 +33,15 @@ header {
     padding: 10px 0px 10px 10px;
 }
 
+#loginUser p {
+    color: #fff;
+    font-display: center;
+}
+
+#loginUser img {
+    margin: 5px;
+}
+
 #nav {
     width: 90px;
     padding: 10px 10px 10px 0px;
