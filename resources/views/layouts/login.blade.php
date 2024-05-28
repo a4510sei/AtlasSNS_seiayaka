@@ -37,17 +37,34 @@
 </head>
 <body>
     <header>
-        <div id = "head">
-        <h1><a href="/home"><img src="images/atlas.png" alt="ロゴ画像" ></a></h1>
-            <div id="">
-                <div id="">
-                    <p><?php $user = Auth::user(); ?>{{ $user->username }}さん<img src="images/icon1.png"></p>
-                <div>
-                <ul>
-                    <li><a href="/home">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
+        <div class ="header_content">
+        <!-- ヘッダーサイド-->
+            <div class = "site_title">
+                <h1><a href="/home"><img src="images/atlas.png"alt="ロゴ    画像" ></a></h1>
+            </div>
+        </div>
+        <!-- ヘッダーサイド-->
+        <div class ="header_content">
+            <div class="header_side">
+        <!-- ユーザー名・ユーザーアイコン-->
+                <div id="loginUser">
+                    <p><?php $user = Auth::user(); ?>{{         $user->username }}さん
+                    <img src="images/icon1.png"></p>
+                </div>
+                <div id="nav">
+                    <!-- ハンバーガーメニューの表示・非表示を切り替えるチ    ェックボックス -->
+                    <input id="drawer_input" class="drawer_hidden"         type="checkbox">
+                    <!-- ハンバーガーアイコン-->
+                    <label for="drawer_input"         class="drawer_open"><span></span></label>
+                    <!-- ハンバーガーメニュー -->
+                    <div class="nav_content">
+                        <ul class="nav_list">
+                            <li><a href="/home">ホーム</a></li>
+                            <li><a href="/profile">プロフィール</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
