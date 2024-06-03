@@ -11,6 +11,10 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //'user_id','post'
+        DB::table('posts')->insert([
+            ['user_id' => '27',
+            'post' => 'はじめまして'],
+        ]);
     }
 }

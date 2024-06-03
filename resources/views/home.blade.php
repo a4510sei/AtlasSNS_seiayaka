@@ -1,5 +1,8 @@
+<!-- layouts/login.blade呼び出し  -->
 @extends('layouts.login')
-
+<!-- posts/index.blade呼び出し  -->
+<!-- @include('posts.index') -->
+<!-- contentセクション  -->
 @section('content')
 <div class="container">
     <div class="row">

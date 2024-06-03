@@ -48,14 +48,14 @@
             <div class="header_side">
         <!-- ユーザー名・ユーザーアイコン-->
                 <div id="loginUser">
-                    <p><?php $user = Auth::user(); ?>{{         $user->username }}さん
+                    <p><?php $user = Auth::user(); ?> {{ $user->username }}さん
                     <img src="images/icon1.png"></p>
                 </div>
                 <div id="nav">
-                    <!-- ハンバーガーメニューの表示・非表示を切り替えるチ    ェックボックス -->
-                    <input id="drawer_input" class="drawer_hidden"         type="checkbox">
+                    <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+                    <input id="drawer_input" class="drawer_hidden"type="checkbox">
                     <!-- ハンバーガーアイコン-->
-                    <label for="drawer_input"         class="drawer_open"><span></span></label>
+                    <label for="drawer_input" class="drawer_open"><span></span></label>
                     <!-- ハンバーガーメニュー -->
                     <div class="nav_content">
                         <ul class="nav_list">
@@ -68,13 +68,17 @@
             </div>
         </div>
     </header>
+    <!-- POST投稿機能-->
+    <div id="posts">
+    </div>
     <div id="row">
         <div id="container">
             @yield('content')
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                @yield('content')
+                <p>{{ $user->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>〇〇名</p>
