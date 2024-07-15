@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/top';
 
     /**
      * Create a new controller instance.
@@ -54,7 +54,7 @@ class LoginController extends Controller
 //            $username = $user->username;
 //            return view('/home',compact('username'));
 //            return redirect()->route('/home', ['username' => $username]);
-                return redirect('/home');
+                return redirect('/top');
 
             }
         }

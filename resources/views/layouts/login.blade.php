@@ -40,7 +40,7 @@
         <div class ="header_content">
         <!-- ヘッダーサイド-->
             <div class = "site_title">
-                <h1><a href="/home"><img src="images/atlas.png"alt="ロゴ    画像" ></a></h1>
+                <h1><a href="/top"><img src="images/atlas.png"alt="ロゴ    画像" ></a></h1>
             </div>
         </div>
         <!-- ヘッダーサイド-->
@@ -59,7 +59,7 @@
                     <!-- ハンバーガーメニュー -->
                     <div class="nav_content">
                         <ul class="nav_list">
-                            <li><a href="/home">ホーム</a></li>
+                            <li><a href="/top">ホーム</a></li>
                             <li><a href="/profile">プロフィール</a></li>
                             <li><a href="/logout">ログアウト</a></li>
                         </ul>
@@ -77,7 +77,6 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                @yield('content')
                 <p>{{ $user->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>

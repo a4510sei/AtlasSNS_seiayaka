@@ -29,14 +29,15 @@ Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/added', 'Auth\RegisterController@added');
-Route::post('/added', 'Auth\RegisterController@added');
+//Route::post('/added', 'Auth\RegisterController@added');
 
 //auth認証後のみ表示
 Route::group(['middleware' => 'auth'], function() {
 //ログイン中のページ
 //auth認証解決後、middleware('auth')付きに戻す
-    Route::get('/home','HomeController@index');
-    Route::post('/home','HomeController@index');
+//    Route::get('/home','HomeController@index');//top、PostsController@に戻す
+    Route::get('/top','PostsController@index');
+//    Route::post('/home','HomeController@index');
     Route::get('/profile','UsersController@profile');
 
     Route::get('/search','UsersController@index');
