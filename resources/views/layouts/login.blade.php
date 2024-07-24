@@ -40,34 +40,37 @@
         <div class ="header_content">
         <!-- ヘッダーサイド-->
             <div class = "site_title">
-                <h1><a href="/top"><img src="images/atlas.png"alt="ロゴ    画像" ></a></h1>
+                <h1><a href="/top"><img src="images/atlas.png"alt="ロゴ画像" ></a></h1>
             </div>
         </div>
         <!-- ヘッダーサイド-->
         <div class ="header_content">
             <div class="header_side">
-        <!-- ユーザー名・ユーザーアイコン-->
-                <div id="loginUser">
-                    <p><?php $user = Auth::user(); ?> {{ $user->username }}さん
-                    <img src="images/icon1.png"></p>
+        <!-- ユーザー名-->
+                <div id="Username">
+                    <p><?php $user = Auth::user(); ?> {{ $user->username }}さん</p>
                 </div>
+        <!-- トップメニュー-->
                 <div id="nav">
-                    <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
-                    <input id="drawer_input" class="drawer_hidden"type="checkbox">
-                    <!-- ハンバーガーアイコン-->
-                    <label for="drawer_input" class="drawer_open"><span></span></label>
-                    <!-- ハンバーガーメニュー -->
-                    <div class="nav_content">
-                        <ul class="nav_list">
-                            <li><a href="/top">ホーム</a></li>
-                            <li><a href="/profile">プロフィール</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                        </ul>
-                    </div>
+                    <!-- アコーディオンメニュー -->
+                    <input type="checkbox" class="nav_chk" />
+                    <label for="menu_bar01"></label>
+                </div>
+                <!-- ユーザー名・ユーザーアイコン-->
+                <div id="UserIcon">
+                    <img src="images/icon1.png"></p>
                 </div>
             </div>
         </div>
     </header>
+    <!-- メニュー内容 -->
+    <div class="nav_content">
+        <ul class="nav_list">
+            <li><a href="/top">ホーム</a></li>
+            <li><a href="/profile">プロフィール</a></li>
+            <li><a href="/logout">ログアウト</a></li>
+        </ul>
+    </div>
     <!-- POST投稿機能-->
     <div id="posts">
     </div>
