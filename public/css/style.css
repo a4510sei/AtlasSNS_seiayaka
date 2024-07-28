@@ -30,20 +30,14 @@ header {
 
 /* ログインユーザー名 */
 #Username {
-    <<<<<<< HEAD width: 180px;
+    width: 180px;
     padding: 10px 10px 10px 10px;
 }
 
 #Username h2 {
     font-size: 26px;
-    =======width: 90px;
+    width: 90px;
     padding: 10px 10px 10px 10px;
-}
-
-#Username p {
-    color: #fff;
-    font-display: center;
-
 }
 
 /* ログインユーザーアイコン */
@@ -57,18 +51,9 @@ header {
     padding-bottom: 50px;
 }
 
-#nav {
-    width: 60px;
-    padding: 10px 10px 10px 10px;
-}
-
-/* アコーディオンメニュー */
-/*アコーディオン全体*/
-#nav input {
+nav {
     display: none;
-    /*チェックボックスを隠す*/
 }
-
 
 /* アコーディオンメニュー */
 .nav-open {

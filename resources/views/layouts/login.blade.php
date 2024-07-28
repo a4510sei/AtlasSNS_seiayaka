@@ -56,7 +56,7 @@
         <!-- メニュー-->
                 <div id="nav">
                     <!-- トリガーの部分 -->
-                    <p class="nav-open">あ</p>
+                    <p class="nav-open"></p>
                     <!-- アコーディオンメニュー -->
                     <nav>
                         <ul class="nav_list">

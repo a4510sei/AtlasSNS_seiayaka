@@ -1,7 +1,7 @@
 diff a/resources/views/posts/index.blade.php b/resources/views/posts/index.blade.php	(rejected hunks)
 @@ -1,11 +1,10 @@
  @extends('layouts.login')
- 
+
  @section('content')
 -
 -<h2>機能を実装していきましょう。</h2>
@@ -14,5 +14,5 @@ diff a/resources/views/posts/index.blade.php b/resources/views/posts/index.blade
 +  <p>名前：{{-- $post->user->username --}}</p>
 +  <p>投稿内容：{{ $post->post }}</p>
 +  @endforeach
- 
+
  @endsection
