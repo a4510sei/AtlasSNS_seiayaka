@@ -30,20 +30,17 @@ header {
 
 /* ログインユーザー名 */
 #Username {
-<<<<<<< HEAD
-    width: 180px;
+    <<<<<<< HEAD width: 180px;
     padding: 10px 10px 10px 10px;
 }
 
 #Username h2 {
     font-size: 26px;
-=======
-    width: 90px;
+    =======width: 90px;
     padding: 10px 10px 10px 10px;
 }
 
 #Username p {
->>>>>>> 242a5079985211d6e73f18a1dafee15e42211ff5
     color: #fff;
     font-display: center;
 
@@ -61,8 +58,6 @@ header {
 }
 
 #nav {
-<<<<<<< HEAD
-=======
     width: 60px;
     padding: 10px 10px 10px 10px;
 }
@@ -70,12 +65,11 @@ header {
 /* アコーディオンメニュー */
 /*アコーディオン全体*/
 #nav input {
->>>>>>> 242a5079985211d6e73f18a1dafee15e42211ff5
     display: none;
     /*チェックボックスを隠す*/
 }
 
-<<<<<<< HEAD
+
 /* アコーディオンメニュー */
 .nav-open {
     padding: 15px;
@@ -95,13 +89,6 @@ header {
 /* 開いている時 */
 .nav-open.active::before {
     content: "－";
-=======
-/* */
-.nav_content {
-    height: 100px;
-    bottom: 100%;
-    background-color: #fff;
->>>>>>> 242a5079985211d6e73f18a1dafee15e42211ff5
 }
 
 /* main content */
