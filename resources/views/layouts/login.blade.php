@@ -34,6 +34,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- JQuery-->
+    <script src="js/jquery-1.12.4.min.js"></script>
 </head>
 <body>
     <header>
@@ -46,19 +49,41 @@
         <!-- ヘッダーサイド-->
         <div class ="header_content">
             <div class="header_side">
-        <!-- ユーザー名-->
+        <!-- ユーザー名・ユーザーアイコン-->
                 <div id="Username">
-                    <p><?php $user = Auth::user(); ?> {{ $user->username }}さん</p>
+                    <h2><?php $user = Auth::user(); ?> {{ $user->username }}　さん</h2>
                 </div>
-        <!-- トップメニュー-->
+        <!-- メニュー-->
                 <div id="nav">
+                    <!-- トリガーの部分 -->
+                    <p class="nav-open">あ</p>
                     <!-- アコーディオンメニュー -->
-                    <input type="checkbox" class="nav_chk" />
-                    <label for="menu_bar01"></label>
+                    <nav>
+                        <ul class="nav_list">
+                            <li><a href="/top">ホーム</a></li>
+                            <li><a href="/profile">プロフィール</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </nav>
                 </div>
-                <!-- ユーザー名・ユーザーアイコン-->
+        <!-- jQuery-->
+                <script>
+                    $(function(){
+                        //クリックで動く
+                        $('.nav-open').click(function () {
+                            $(this).toggleClass('active');
+                            $(this).next('nav').slideToggle();
+                        });
+                        //ホバーで動く
+                        $('.nav-open').hover(function(){
+                            $(this).toggleClass('active');
+                        $(this).next('nav').slideToggle();
+                        });
+                	});
+                </script>
+        <!-- ユーザー名・ユーザーアイコン-->
                 <div id="UserIcon">
-                    <img src="images/icon1.png"></p>
+                    <img src="images/icon1.png">
                 </div>
             </div>
         </div>

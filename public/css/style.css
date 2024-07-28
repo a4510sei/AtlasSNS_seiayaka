@@ -13,8 +13,8 @@ header {
     justify-content: space-between;
     background: #186AC9;
     height: 120px;
-    width: 100%;
-    max-width: 100%;
+    width: 80%;
+    max-width: 80%;
 }
 
 .header_content {
@@ -30,11 +30,12 @@ header {
 
 /* ログインユーザー名 */
 #Username {
-    width: 90px;
+    width: 180px;
     padding: 10px 10px 10px 10px;
 }
 
-#Username p {
+#Username h2 {
+    font-size: 26px;
     color: #fff;
     font-display: center;
 
@@ -48,22 +49,33 @@ header {
 
 #UserIcon img {
     margin: 5px;
+    padding-bottom: 50px;
 }
 
 #nav {
-    width: 60px;
-    padding: 10px 10px 10px 10px;
+    display: none;
 }
 
 /* アコーディオンメニュー */
-/*アコーディオン全体*/
-#nav input {
-    display: none;
-    /*チェックボックスを隠す*/
+.nav-open {
+    padding: 15px;
+    color: #fff;
+    font-size: 20px;
+    background: #2073c8;
+    position: relative;
 }
 
-/* */
+/* 閉じている時 */
+.nav-open::before {
+    content: "＋";
+    position: absolute;
+    right: 20px;
+}
 
+/* 開いている時 */
+.nav-open.active::before {
+    content: "－";
+}
 
 /* main content */
 #row {
@@ -78,10 +90,4 @@ header {
 #side-bar-top {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
-}
-
-
-.nav_content {
-    background-color: #fff;
-    padding-bottom: 10px;
 }
