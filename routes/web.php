@@ -38,12 +38,14 @@ Route::group(['middleware' => 'auth'], function() {
 //    Route::get('/home','HomeController@index');//top、PostsController@に戻す
     Route::get('/top','PostsController@index');
 //    Route::post('/home','HomeController@index');
+    Route::get('/post','PostsController@postCreate');
+
     Route::get('/profile','UsersController@profile');
 
-    Route::get('/search','UsersController@index');
+    Route::get('/search','UsersController@search');
 
-    Route::get('/follow-list','PostsController@index');
-    Route::get('/follower-list','PostsController@index');
+    Route::get('/follow-list','FollowsController@followList');
+    Route::get('/follower-list','FollowsController@followerList');
 
     Route::get('/logout','Auth\LoginController@logout');
 });

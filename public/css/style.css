@@ -22,6 +22,7 @@ header {
 
 }
 
+/* ユーザー名・メニュー・アイコン部分 */
 .header_side {
     display: flex;
     justify-content: flex-end;
@@ -30,20 +31,19 @@ header {
 
 /* ログインユーザー名 */
 #Username {
-    width: 180px;
+    width: 240px;
     padding: 10px 10px 10px 10px;
 }
 
 #Username h2 {
+    color: #fff;
     font-size: 26px;
-    width: 90px;
-    padding: 10px 10px 10px 10px;
 }
 
 /* ログインユーザーアイコン */
 #UserIcon {
-    width: 90px;
-    padding: 10px 10px 10px 10px;
+    width: 100px;
+    padding: 20px 20px 20px 20px;
 }
 
 #UserIcon img {
@@ -53,21 +53,44 @@ header {
 
 nav {
     display: none;
+    position: absolute;
+    background-color: #fff;
+    margin-top: 16px;
+    margin-right: 20px;
 }
 
-/* アコーディオンメニュー */
+nav li {
+    width: 120px;
+    display: block;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid;
+}
+
+nav a {
+    color: #727272;
+}
+
+/* カーソルオン時は背景を紺に、文字色を白に */
+nav li:hover {
+    background-color: #186AC9;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* -----アコーディオンメニュー----- */
 .nav-open {
     padding: 15px;
     color: #fff;
     font-size: 20px;
-    background: #2073c8;
-    position: relative;
+    background-color: #2073c8;
 }
 
 /* 閉じている時 */
 .nav-open::before {
     content: "＋";
-    position: absolute;
     right: 20px;
 }
 
@@ -82,11 +105,17 @@ nav {
     flex-flow: row wrap;
 }
 
+/* -----アコーディオンメニューおわり----- */
+
+/* -----フォロー数----- */
 #container {
     flex: 0 0 80%;
 }
+
 
 #side-bar-top {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
+
+/* -----フォロー数おわり----- */

@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
+use App\Post;
 
 //Illuminate\Http\Request;
-use App\Post;
 class PostsController extends Controller
 {
-    //
+    //UserからPostを拾う
     public function index(){
-      $posts = Post::get();
+      $posts = Post::with('user')->get();
       return view('posts.index',['posts'=>$posts]);
 //        return view('posts（フォルダ）.index（Blade）',['posts'=>$posts]);
     }
@@ -25,5 +26,16 @@ class PostsController extends Controller
     public function postCounts(){
       $posts = Post::get();
       return view('yyyy', compact('posts'));
+    }
+
+    // post投稿
+    // 設定内容：user_id,post
+    // userからIDを拾って設定する
+       public function postCreate(Request $request)
+    {
+        dd($request);
+        $post = $request->input('post');
+        Post::create(['post' => $post]);
+        return back();
     }
 }

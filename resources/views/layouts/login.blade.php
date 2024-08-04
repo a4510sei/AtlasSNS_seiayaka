@@ -65,23 +65,18 @@
                             <li><a href="/logout">ログアウト</a></li>
                         </ul>
                     </nav>
+        <!-- アコーディオンメニュー用jQuery-->
+                    <script>
+                        $(function(){
+                            //クリックで動く
+                            $('.nav-open').click(function () {
+                                $(this).toggleClass('active');
+                                $(this).next('nav').slideToggle();
+                            });
+                        });
+                    </script>
                 </div>
-        <!-- jQuery-->
-                <script>
-                    $(function(){
-                        //クリックで動く
-                        $('.nav-open').click(function () {
-                            $(this).toggleClass('active');
-                            $(this).next('nav').slideToggle();
-                        });
-                        //ホバーで動く
-                        $('.nav-open').hover(function(){
-                            $(this).toggleClass('active');
-                        $(this).next('nav').slideToggle();
-                        });
-                	});
-                </script>
-        <!-- ユーザー名・ユーザーアイコン-->
+                <!-- ユーザーアイコン-->
                 <div id="UserIcon">
                     <img src="images/icon1.png">
                 </div>
@@ -89,35 +84,30 @@
         </div>
     </header>
     <!-- メニュー内容 -->
-    <!-- POST投稿機能-->
     <div id="posts">
+    <!-- POST投稿機能-->
+        <div class="container">
+        </div>
     </div>
     <div id="row">
         <div id="container">
             @yield('content')
         </div >
         <div id="side-bar-top">
-            <div class="nav_content">
-                <ul class="nav_list">
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
-            </div>
             <div id="confirm">
                 <p>{{ $user->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
