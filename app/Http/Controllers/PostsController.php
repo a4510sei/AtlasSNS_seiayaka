@@ -33,9 +33,10 @@ class PostsController extends Controller
     // userからIDを拾って設定する
        public function postCreate(Request $request)
     {
-        dd($request);
+        //認証済IDにてpostテーブルを更新
+        $id = Auth::id();
         $post = $request->input('post');
-        Post::create(['post' => $post]);
+        Post::create(['user_id' => $id,'post' => $post]);
         return back();
     }
 }

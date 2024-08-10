@@ -5,7 +5,7 @@
 <!-- 投稿機能を実装create -->
 <!-- 7/30 投稿フォームOK、実際のDBinsetまでは行ってない -->
 <div>
-  {!! Form::open(['url' => '/post']) !!}
+  {!! Form::open(['url' => '/top']) !!}
   @csrf
   {{ Form::input('text', 'post', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。']) }}
   {{ Form::submit('投稿') }}

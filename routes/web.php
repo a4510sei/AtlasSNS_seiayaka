@@ -37,8 +37,7 @@ Route::group(['middleware' => 'auth'], function() {
 //auth認証解決後、middleware('auth')付きに戻す
 //    Route::get('/home','HomeController@index');//top、PostsController@に戻す
     Route::get('/top','PostsController@index');
-//    Route::post('/home','HomeController@index');
-    Route::get('/post','PostsController@postCreate');
+    Route::post('/top','PostsController@postCreate');
 
     Route::get('/profile','UsersController@profile');
 
