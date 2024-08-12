@@ -14,10 +14,13 @@
 
 <!-- 投稿表示 -->
 <div>
-  @foreach($posts as $post)
-  <p>名前：{{ $post->user->username }}</p>
-  <p>投稿内容：{{ $post->post }}</p>
-  @endforeach
+  <tr>
+    @foreach($posts as $post)
+<!-- postテーブルからuserテーブルを呼び出し、images,usernameを取得 -->
+    <p><img src="{{asset('images/'.$post->user->images)}}" alt="ユーザーアイコン画像" > {{ $post->user->username }}</p>
+    <p>{{ $post->post }}</p>
+    @endforeach
+  </tr>
 </div>
 
 @endsection

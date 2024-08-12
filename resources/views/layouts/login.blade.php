@@ -78,7 +78,8 @@
                 </div>
                 <!-- ユーザーアイコン-->
                 <div id="UserIcon">
-                    <img src="images/icon1.png">
+                    <!-- usersテーブルから取得した画像ファイル名を呼び出し（相対パス） -->
+                    <img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン画像" >
                 </div>
             </div>
         </div>
