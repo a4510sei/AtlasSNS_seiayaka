@@ -17,7 +17,7 @@ class Post extends Model
     }
     /* 関連付け Post→Follow（n:n ）*/
     public function follow(){
-        return $this->hasMany('App\Follow');
+        return $this->belongsToMany('App\Follow',);
     }
 
 }

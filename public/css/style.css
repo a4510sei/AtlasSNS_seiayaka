@@ -119,3 +119,112 @@ nav a:hover {
 }
 
 /* -----フォロー数おわり----- */
+
+/* -----タイムライン----- */
+/* container */
+.post_timeline {
+    background-color: #727272;
+}
+
+.post_block {
+    display: flex;
+    height: 150px;
+    background-color: #fff;
+    margin-bottom: 4px;
+    padding-top: 10px;
+}
+
+/* posts icon */
+.posts_icon {
+    /* width: 120px; */
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.posts_icon img {
+    width: 60px;
+    height: 60px;
+}
+
+/* text area */
+.post_textarea {
+    flex-grow: 3;
+    padding-left: 10px;
+}
+
+.post_user {
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+.post_user h1 {
+    font-size: large;
+}
+
+.post_textarea p {
+    font-size: medium;
+}
+
+/* post edit */
+.post_edit_time {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+/* update_time */
+.update_time {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+/* edit_trash */
+.edit_trash {
+    height: 80px;
+    padding-top: 20px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    display: flex;
+}
+
+.edit_trash img {
+    padding-right: 10px;
+}
+
+.edit img {
+    width: 60px;
+}
+
+/* trash icon */
+.trash {
+    position: relative;
+}
+
+.trash img {
+    transition: opacity 0.5s;
+}
+
+.trash img:first-of-type {
+    width: 60px;
+}
+
+.trash:hover img:first-of-type {
+    opacity: 0;
+}
+
+.trash img:last-of-type {
+    /* サイズ・位置決定：変更禁止 */
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    opacity: 0;
+    width: 80px;
+}
+
+.trash:hover img:last-of-type {
+    opacity: 1;
+}
+
+/* -----タイムラインおわり----- */

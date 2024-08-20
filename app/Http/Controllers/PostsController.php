@@ -23,6 +23,8 @@ class PostsController extends Controller
     // $users = App\User::with(['posts' => function ($query) {
     // $query->where('content', 'like', '%good%');
     // }])->get();
+    $following = FOLLOW::where('id',$id);
+    $posts = Post::with('user')->get();
       return view('posts.index',['posts'=>$posts]);
     }
 
@@ -49,4 +51,5 @@ class PostsController extends Controller
         Post::create(['user_id' => $id,'post' => $post]);
         return back();
     }
-}
+
+  }
