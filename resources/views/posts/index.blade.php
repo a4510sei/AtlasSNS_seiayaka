@@ -2,9 +2,8 @@
 
 @section('content')
 
-<!-- 投稿機能を実装create -->
-<!-- 7/30 投稿フォームOK、実際のDBinsetまでは行ってない -->
-<div>
+<!-- 投稿機能 -->
+<div class="post_input_form">
   {!! Form::open(['url' => '/top']) !!}
   @csrf
   {{ Form::input('text', 'post', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。']) }}
@@ -14,6 +13,7 @@
 
 <!-- 投稿表示 -->
 <div class="post_timeline">
+  <!-- ﾃﾞﾊﾞｯｸﾞ用・フォローリスト -->
   @foreach($posts as $post)
   <div class="post_block">
     <!-- postテーブルからuserテーブルを呼び出し、images,usernameを取得 -->
@@ -32,24 +32,28 @@
     </div>
     <!-- ③更新時刻・編集用エリア -->
     <div class="post_edit_time">
-      <!-- 更新日時12桁（yyyy-mm-dd hh:mm) -->
+      <!-- 更新日時16桁（yyyy-mm-dd hh:mm) -->
       <div class="update_time">
         <p>{{ substr($post->updated_at,0,16) }}</p>
       </div>
-      <!-- 編集・削除 -->
-      <div class="edit_trash">
-        <!-- 編集ボタン -->
-        <div class="edit">
-          <img src="images/edit.png"alt="編集する" >
+      <!-- postのユーザーが自分である時のみ編集・削除 -->
+      @if ($post->user->id == $user_id)
+        <div class="edit_trash">
+          <!-- 編集ボタン -->
+          <div class="edit">
+              <a class="btn btn-primary" href="/top/{{ $post->id }}/update-form">
+                <img src="images/edit.png"alt="編集する">
+              </a>
+          </div>
+          <!-- 削除ボタン -->
+          <div class="trash">
+            <!-- 削除ボタン：白　ホバー時は消す -->
+            <img src="images/trash.png" alt="削除する" >
+            <!-- 削除ボタン：赤　ホバー時に出現 -->
+            <img src="images/trash-h.png" alt="削除する" >
+          </div>
         </div>
-        <!-- 削除ボタン -->
-        <div class="trash">
-          <!-- 削除ボタン：白　ホバー時は消す -->
-          <img src="images/trash.png" alt="削除する" >
-          <!-- 削除ボタン：赤　ホバー時に出現 -->
-          <img src="images/trash-h.png" alt="削除する" >
-        </div>
-      </div>
+      @endif
     </div>
   </div>
     @endforeach

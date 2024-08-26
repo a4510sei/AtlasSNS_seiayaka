@@ -203,7 +203,7 @@ nav a:hover {
 }
 
 .trash img {
-    transition: opacity 0.5s;
+    /* transition: opacity 0.5s; */
 }
 
 .trash img:first-of-type {
