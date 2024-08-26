@@ -47,10 +47,12 @@
           </div>
           <!-- 削除ボタン -->
           <div class="trash">
-            <!-- 削除ボタン：白　ホバー時は消す -->
-            <img src="images/trash.png" alt="削除する" >
-            <!-- 削除ボタン：赤　ホバー時に出現 -->
-            <img src="images/trash-h.png" alt="削除する" >
+            <a class="btn btn-danger" href="/top/{{ $post->id }}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+              <!-- 削除ボタン：白　ホバー時は消す -->
+              <img src="images/trash.png" alt="削除する" >
+              <!-- 削除ボタン：赤　ホバー時に出現 -->
+              <img src="images/trash-h.png" alt="削除する" >
+            </a>
           </div>
         </div>
       @endif

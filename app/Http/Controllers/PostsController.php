@@ -51,9 +51,7 @@ class PostsController extends Controller
         Post::create(['user_id' => $id,'post' => $post]);
         return back();
     }
-    // post投稿
-    // 設定内容：user_id,post
-    // userからIDを拾って設定する
+    // post編集用ページ
        public function postUpdateForm($id)
     {
         //postテーブルのプライマリーキー選択
@@ -61,7 +59,7 @@ class PostsController extends Controller
         return view('posts.postUpdate', ['post'=>$post]);
 
     }
-
+// ポスト編集実処理
     public function postUpdate(Request $request)
     {
         // Postテーブルを入力した内容でUpdate
@@ -72,6 +70,12 @@ class PostsController extends Controller
               'post' => $up_post,
         ]);
         // 3つ目の処理
+        return redirect('/top');
+    }
+// ポスト削除
+    public function postDelete($id)
+    {
+        Post::where('id', $id)->delete();
         return redirect('/top');
     }
   }
