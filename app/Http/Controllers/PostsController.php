@@ -13,18 +13,18 @@ class PostsController extends Controller
 {
     //UserからPostを拾う
     public function index(){
-    // ①UserからFollow->following_idに紐づくfollowed_idを取得
     // ①現在認証しているユーザーのIDを取得
     $user_id = Auth::id();
-    // ②idがfollowed_idと一致するpostを取得
-    // ::with 取得したPostのuser_idをまとめ、それらのUser情報を取得
-    //  $posts = Post::with(['user' => function($query){*******}])->get();
-    //条件を足す→下記コードをアレンジ
-    // $users = App\User::with(['posts' => function ($query) {
-    // $query->where('content', 'like', '%good%');
-    // }])->get();
-    $followed_ids = FOLLOW::select('followed_id')->where('following_id',$user_id)->get();
-    $posts = Post::with('user')->get();
+    // ②フォロー対象のidを取得し、配列にする。
+    $followed_ids = FOLLOW::where('following_id',$user_id)->pluck('followed_id')->toArray();
+    // ③ user_idが②（フォロー対象）に含まれる、または①（ユーザーID）と合致するpostを取得、
+    $posts = Post::whereIn('user_id',$followed_ids)
+                 ->orWhere('user_id',$user_id)
+    // postに紐づいたuserの情報を取得
+                 ->with('user')
+    // 更新日時が新しい順
+                 ->latest()
+                 ->get();
       return view('posts.index',['posts'=>$posts,'user_id'=>$user_id,'followed_ids'=>$followed_ids]);
     }
 

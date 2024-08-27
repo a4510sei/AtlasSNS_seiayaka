@@ -97,14 +97,18 @@
         <div id="side-bar-top">
             <div id="confirm">
                 <p>{{ $user->username }}さんの</p>
+                <!-- フォロー数、フォロワー数をfollowsテーブルから取得 -->
+                <?php
+                $id = Auth::id();
+                $following_cnt = DB::table('follows')->where('following_id',$id)->count();
+                $followed_cnt = DB::table('follows')->where('followed_id',$id)->count();
+                ?>
                 <div>
-                <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p>フォロー数　　　　　{{ $following_cnt }}名</p>
                 </div>
                 <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
-                <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p>フォロワー数　　　　{{ $followed_cnt }}名</p>
                 </div>
                 <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
