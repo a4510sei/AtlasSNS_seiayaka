@@ -228,3 +228,56 @@ nav a:hover {
 }
 
 /* -----タイムラインおわり----- */
+
+/* -----ユーザー検索結果----- */
+.user_searchResult h1 {
+    text-align: center;
+    margin: 50px;
+}
+
+.search_result_list {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.follow_icon {
+    padding: 20px;
+}
+
+.follow_name {
+    align-self: center;
+    width: 250px;
+    padding: 10px;
+}
+
+.follow_remove {
+    width: 120px;
+    align-self: center;
+    padding: 10px;
+}
+
+.btn_follow {
+    width: 120px;
+    height: 15px;
+    display: block;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #CB1845;
+}
+
+.btn_remove {
+    width: 120px;
+    height: 15px;
+    display: block;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #58B2DC;
+}

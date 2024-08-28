@@ -7,7 +7,7 @@
   {!! Form::open(['url' => '/top']) !!}
   @csrf
   {{ Form::input('text', 'post', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。']) }}
-  {{ Form::submit('投稿') }}
+  {{ Form::button(Html::image('images/post.png', '投稿', ['width' => '30', 'height' => '30']), ['type' => 'submit']) }}
   {!! Form::close() !!}
 </div>
 
@@ -63,4 +63,4 @@
     @endforeach
 </div>
 
-  @endsection
+@endsection

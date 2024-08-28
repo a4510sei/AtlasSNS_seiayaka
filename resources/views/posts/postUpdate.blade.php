@@ -10,7 +10,8 @@
       {{ Form::hidden('id', $post->id) }}
       {{ Form::label('修正する投稿内容を入力してください。') }}
       {{ Form::input('text', 'upPost', null, ['required', 'class' => 'form-post', 'placeholder' => $post->post]) }}
-      {{ Form::submit('編集') }}
+      {{ Form::button(Html::image('images/post.png', '投稿', ['width' => '30', 'height' => '30']), ['type' => 'submit']) }}
+
     </div>
       {{ Form::close() }}
 </div>

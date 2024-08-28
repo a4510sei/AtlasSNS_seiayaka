@@ -45,8 +45,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/top/{id}/delete','PostsController@postDelete');
 
     Route::get('/profile','UsersController@profile');
-
-    Route::get('/search','UsersController@search');
+// ユーザー検索
+    Route::get('/users/search','UsersController@search');
+    Route::post('/users/search_result','UsersController@searchResult');
 
     Route::get('/follow-list','FollowsController@followList');
     Route::get('/follower-list','FollowsController@followerList');
