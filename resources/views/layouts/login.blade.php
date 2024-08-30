@@ -94,25 +94,28 @@
         <div id="container">
             @yield('content')
         </div >
-        <div id="side-bar-top">
+        <div id="side-bar">
             <div id="confirm">
-                <p>{{ $user->username }}さんの</p>
+                <div class="side-username">
+                    <p>{{ $user->username }}さんの</p>
+                </div>
                 <!-- フォロー数、フォロワー数をfollowsテーブルから取得 -->
                 <?php
                 $id = Auth::id();
                 $following_cnt = DB::table('follows')->where('following_id',$id)->count();
                 $followed_cnt = DB::table('follows')->where('followed_id',$id)->count();
                 ?>
-                <div>
-                <p>フォロー数　　　　　{{ $following_cnt }}名</p>
+                <div class="view-follow">
+                  <p>フォロー数　　　　　{{ $following_cnt }}人</p>
+                  <p class="btn btn-link"><a href="/follows/follow-list">フォローリスト</a></p>
                 </div>
-                <p class="btn"><a href="/follows/follow-list">フォローリスト</a></p>
-                <div>
-                <p>フォロワー数　　　　{{ $followed_cnt }}名</p>
+                <div class="view-follow">
+                  <p>フォロワー数　　　　{{ $followed_cnt }}人</p>
+                  <p class="btn btn-link"><a href="/follows/follower-list">フォロワーリスト</a></p>
                 </div>
-                <p class="btn"><a href="/follows/follower-list">フォロワーリスト</a></p>
+                <div class="to-user-search">
+                <p class="btn btn-link"><a href="/users/search">ユーザー検索</a></p>
             </div>
-            <p class="btn"><a href="/users/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>

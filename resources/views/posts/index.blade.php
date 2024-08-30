@@ -41,13 +41,13 @@
         <div class="edit_trash">
           <!-- 編集ボタン -->
           <div class="edit">
-              <a class="btn btn-primary" href="/top/{{ $post->id }}/update-form">
+              <a href="/top/{{ $post->id }}/update-form">
                 <img src="images/edit.png"alt="編集する">
               </a>
           </div>
           <!-- 削除ボタン -->
           <div class="trash">
-            <a class="btn btn-danger" href="/top/{{ $post->id }}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+            <a href="/top/{{ $post->id }}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
               <!-- 削除ボタン：白　ホバー時は消す -->
               <img src="images/trash.png" alt="削除する" >
               <!-- 削除ボタン：赤　ホバー時に出現 -->
