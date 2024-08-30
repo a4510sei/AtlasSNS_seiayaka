@@ -12,8 +12,6 @@
 </div>
 
 <!-- 投稿表示 -->
-<div>
-</div>
 <div class="post_timeline">
   <!-- ﾃﾞﾊﾞｯｸﾞ用・フォローリスト -->
   @foreach($posts as $post)
