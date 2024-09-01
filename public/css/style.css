@@ -5,21 +5,15 @@ html {}
 body {}
 
 
-
-
 /* header */
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background: #186AC9;
     height: 120px;
     width: 100%;
     max-width: 100%;
-}
-
-.header_content {
-    padding: 5px;
-
 }
 
 /* 共通パーツ：ボタン */
@@ -40,33 +34,45 @@ header {
     color: #fff;
 }
 
+/* 共通パーツ：icon */
+.user_icon {
+    width: 60px;
+    height: 60px;
+    padding-right: 10px;
+}
+
+.user_icon img {
+    width: 60px;
+    height: 60px;
+}
+
 /* ユーザー名・メニュー・アイコン部分 */
 .header_side {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin: 50px;
+    padding: 20px;
+}
+
+.site_title img {
+    height: 60px;
+    width: auto;
+}
+
+.header_side .user_icon {
+    padding-left: 10px;
 }
 
 /* ログインユーザー名 */
 #Username {
-    width: 240px;
+    width: 200px;
     padding: 10px 10px 10px 10px;
 }
 
 #Username h2 {
     color: #fff;
     font-size: 26px;
-}
-
-/* ログインユーザーアイコン */
-#UserIcon {
-    width: 100px;
-    padding: 20px 20px 20px 20px;
-}
-
-#UserIcon img {
-    margin: 5px;
-    padding-bottom: 50px;
 }
 
 nav {
@@ -168,21 +174,6 @@ nav a:hover {
     border-color: #727272;
 }
 
-/* posts icon */
-.posts_icon {
-    /* width: 120px; */
-    width: 60px;
-    height: 60px;
-    display: flex;
-    padding-right: 10px;
-    padding-left: 80px;
-}
-
-.posts_icon img {
-    width: 60px;
-    height: 60px;
-}
-
 /* text area */
 .post_textarea {
     flex-grow: 3;
@@ -277,10 +268,6 @@ nav a:hover {
     margin: 20px;
 }
 
-.follow_icon {
-    padding: 20px;
-}
-
 .follow_name {
     align-self: center;
     width: 250px;
@@ -293,11 +280,11 @@ nav a:hover {
     padding: 10px;
 }
 
-.btn_follow {
+.btn_remove {
     background-color: #CB1845;
 }
 
-.btn_remove {
+.btn_follow {
     background-color: #58B2DC;
 }
 
@@ -324,4 +311,39 @@ nav a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+
+/* ツイート投稿画面 */
+.input_textarea {
+    display: block;
+    width: 60%;
+    height: 50px;
+}
+
+/* プロフィール */
+.user_profile {
+    width: 80%;
+    height: 180px;
+    padding-left: 80px;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 10px #dcdcdc;
+}
+
+.name_bio {
+    display: flex;
+    margin: 20px;
+}
+
+.name_bio h1 {
+    font-size: x-large;
+}
+
+.profile_header {
+    width: 180px;
+}
+
+.profile_contents {
+    width: 800px;
 }

@@ -8,7 +8,7 @@
   </div>
   <div class="follows_list">
     @foreach($followers as $follower)
-    <div class="follow_icon">
+    <div class="user_icon">
       <!-- フォローされているユーザーのアイコン画像を文字列で取得 -->
       <?php
         $images = DB::table('users')->where('id', $follower->following_id)->pluck('images')->first();
@@ -25,8 +25,11 @@
   <div class="post_block">
     <!-- postテーブルからuserテーブルを呼び出し、images,usernameを取得 -->
     <!-- ①ユーザアイコン -->
-    <div class="posts_icon">
-      <img src="{{asset('images/'.$post->user->images)}}" alt="ユーザーアイコン画像" >
+    <div class="user_icon">
+            <!-- ユーザーアイコンから相手のプロフィールを表示 -->
+      <a href="/users/{{ $post->user->id }}/profile">
+        <img src="{{asset('images/'.$post->user->images)}}" alt="ユーザーアイコン画像" >
+      </a>
     </div>
     <!-- ②ポストエリア（ユーザー名・ポスト） -->
     <div class="post_textarea">

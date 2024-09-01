@@ -11,13 +11,20 @@ use App\Post;
 class UsersController extends Controller
 {
     //
-    public function profile(){
-        return view('users.profile');
+    public function profile($id){
+        $user  = User::where('id',$id)->first();
+        $posts = Post::where('user_id',$id)
+                ->with('user')
+    // 更新日時が新しい順
+                ->latest()
+                ->get();
+        return view('users.profile',['user'=>$user,'posts'=>$posts]);
     }
     // ユーザー検索画面の表示
         public function search()
     {
-        return view('users.search'); // 検索フォームのビューを返す
+        // 検索フォームのビューを返す
+        return view('users.search');
     }
     // ユーザー検索結果
     public function searchResult(Request $request)

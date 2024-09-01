@@ -6,8 +6,10 @@
 <div class="post_input_form">
   {!! Form::open(['url' => '/top']) !!}
   @csrf
-  {{ Form::input('text', 'post', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。']) }}
-  {{ Form::button(Html::image('images/post.png', '投稿', ['width' => '30', 'height' => '30']), ['type' => 'submit']) }}
+  <div class="input_textarea">
+    {{ Form::input('text', 'post', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。', 'maxlength' => '150']) }}
+    {{ Form::button(Html::image('images/post.png', '投稿', ['width' => '30', 'height' => '30']), ['type' => 'submit']) }}
+  </div>
   {!! Form::close() !!}
 </div>
 
@@ -18,7 +20,7 @@
   <div class="post_block">
     <!-- postテーブルからuserテーブルを呼び出し、images,usernameを取得 -->
     <!-- ①ユーザアイコン -->
-    <div class="posts_icon">
+    <div class="user_icon">
       <img src="{{asset('images/'.$post->user->images)}}" alt="ユーザーアイコン画像" >
     </div>
     <!-- ②ポストエリア（ユーザー名・ポスト） -->

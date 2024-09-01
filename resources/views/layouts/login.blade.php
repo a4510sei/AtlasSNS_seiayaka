@@ -40,47 +40,43 @@
 </head>
 <body>
     <header>
-        <div class ="header_content">
-        <!-- ヘッダーサイド-->
-            <div class = "site_title">
-                <h1><a href="/top"><img src="images/atlas.png"alt="ロゴ画像" ></a></h1>
-            </div>
+        <!-- サイトタイトル-->
+        <div class = "site_title">
+            <h1><a href="/top"><img src="images/atlas.png" alt="ロゴ画像" ></a></h1>
         </div>
         <!-- ヘッダーサイド-->
-        <div class ="header_content">
-            <div class="header_side">
-        <!-- ユーザー名・ユーザーアイコン-->
-                <div id="Username">
-                    <h2><?php $user = Auth::user(); ?> {{ $user->username }}　さん</h2>
-                </div>
-        <!-- メニュー-->
-                <div id="nav">
-                    <!-- トリガーの部分 -->
-                    <p class="nav-open"></p>
-                    <!-- アコーディオンメニュー -->
-                    <nav>
-                        <ul class="nav_list">
-                            <li><a href="/top">ホーム</a></li>
-                            <li><a href="/profile">プロフィール</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                        </ul>
-                    </nav>
-        <!-- アコーディオンメニュー用jQuery-->
-                    <script>
-                        $(function(){
-                            //クリックで動く
-                            $('.nav-open').click(function () {
-                                $(this).toggleClass('active');
-                                $(this).next('nav').slideToggle();
-                            });
+        <div class="header_side">
+            <!-- ユーザー名・ユーザーアイコン-->
+            <div id="Username">
+                <h2><?php $user = Auth::user(); ?> {{ $user->username }}　さん</h2>
+            </div>
+            <!-- メニュー-->
+            <div id="nav">
+                <!-- トリガーの部分 -->
+                <p class="nav-open"></p>
+                <!-- アコーディオンメニュー -->
+                <nav>
+                    <ul class="nav_list">
+                        <li><a href="/top">ホーム</a></li>
+                        <li><a href="/profile">プロフィール</a></li>
+                        <li><a href="/logout">ログアウト</a></li>
+                    </ul>
+                </nav>
+                <!-- アコーディオンメニュー用jQuery-->
+                <script>
+                    $(function(){
+                        //クリックで動く
+                        $('.nav-open').click(function () {
+                            $(this).toggleClass('active');
+                            $(this).next('nav').slideToggle();
                         });
-                    </script>
-                </div>
-                <!-- ユーザーアイコン-->
-                <div id="UserIcon">
-                    <!-- usersテーブルから取得した画像ファイル名を呼び出し（相対パス） -->
-                    <img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン画像" >
-                </div>
+                    });
+                </script>
+            </div>
+            <!-- ユーザーアイコン-->
+            <div class="user_icon">
+                <!-- usersテーブルから取得した画像ファイル名を呼び出し（相対パス） -->
+                <img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン画像" >
             </div>
         </div>
     </header>

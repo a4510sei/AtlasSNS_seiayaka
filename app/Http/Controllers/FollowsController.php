@@ -26,7 +26,7 @@ class FollowsController extends Controller
     // 更新日時が新しい順
                  ->latest()
                  ->get();
-        return view('follows.followList',['posts'=>$posts,'follows'=>$follows]);
+        return view('follows.followList',['posts'=>$posts,'follows'=>$follows,]);
     }
     //フォロワーリストの表示
     public function followerList(){
@@ -44,7 +44,25 @@ class FollowsController extends Controller
     // 更新日時が新しい順
                  ->latest()
                  ->get();
-        return view('follows.followerList',['posts'=>$posts,'followers'=>$followers]);
+        return view('follows.followerList',['posts'=>$posts,'followers'=>$followers,]);
     }
-
+    //フォロー解除
+    public function followDelete($id){
+        $followed_id = $id;
+        $following_id = Auth::id();
+        Follow::where('followed_id', $followed_id)
+              ->where('following_id', $following_id)
+              ->delete();
+        return back();
+    }
+    //フォロー登録
+    public function followInsert($id){
+        $followed_id = $id;
+        $following_id = Auth::id();
+        Follow::create([
+            'following_id' => $following_id,
+            'followed_id' => $followed_id,
+        ]);
+        return back();
+    }
 }

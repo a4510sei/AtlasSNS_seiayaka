@@ -43,14 +43,19 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/top/update','PostsController@postUpdate');
 // ポスト削除
     Route::get('/top/{id}/delete','PostsController@postDelete');
-
-    Route::get('/profile','UsersController@profile');
+// プロフィール編集
+    Route::get('/users/profile/update','UsersController@profileUpdate');
 // ユーザー検索
     Route::get('/users/search','UsersController@search');
     Route::post('/users/search_result','UsersController@searchResult');
-
+// フォローリスト・フォロワーリスト
     Route::get('/follows/follow-list','FollowsController@followList');
     Route::get('/follows/follower-list','FollowsController@followerList');
-
+// フォロー登録・フォロー解除
+    Route::get('/follows/{id}/delete','FollowsController@followDelete');
+    Route::get('/follows/{id}/insert','FollowsController@followInsert');
+// プロフィール
+    Route::get('/users/{id}/profile','UsersController@profile');
+// ログアウト
     Route::get('/logout','Auth\LoginController@logout');
 });
