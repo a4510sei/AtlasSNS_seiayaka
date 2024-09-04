@@ -58,7 +58,7 @@
                 <nav>
                     <ul class="nav_list">
                         <li><a href="/top">ホーム</a></li>
-                        <li><a href="/profile">プロフィール</a></li>
+                        <li><a href="/users/profile_update">プロフィール編集</a></li>
                         <li><a href="/logout">ログアウト</a></li>
                     </ul>
                 </nav>

@@ -11,8 +11,10 @@
   $followed_ids = DB::table('follows')->where('following_id',$id)->pluck('followed_id')->toArray();
 ?>
     <!-- ①ユーザアイコン -->
-    <div class="user_icon">
-      <img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン画像" >
+    <div class="profile_icon">
+      <div class="user_icon">
+        <img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン画像" >
+      </div>
     </div>
     <div class="user_textarea">
       <!-- ユーザー名 -->

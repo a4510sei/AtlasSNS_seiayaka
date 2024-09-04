@@ -17,10 +17,10 @@
 {{ Form::text('mail',null,['class' => 'input']) }}
 
 {{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
+{{ Form::password('password',['class' => 'input']) }}
 
 {{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
+{{ Form::password('password_confirmation',['class' => 'input']) }}
 
 {{ Form::submit('登録') }}
 

@@ -44,7 +44,8 @@ Route::group(['middleware' => 'auth'], function() {
 // ポスト削除
     Route::get('/top/{id}/delete','PostsController@postDelete');
 // プロフィール編集
-    Route::get('/users/profile/update','UsersController@profileUpdate');
+    Route::get('/users/profile_update','UsersController@profileUpdate');
+    Route::post('/users/profile_update','UsersController@profileUpdate');
 // ユーザー検索
     Route::get('/users/search','UsersController@search');
     Route::post('/users/search_result','UsersController@searchResult');

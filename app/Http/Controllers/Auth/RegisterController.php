@@ -52,7 +52,7 @@ class RegisterController extends Controller
             User::create([
                 'username' => $username,
                 'mail' => $mail,
-                'password' => bcrypt($password),
+                'password' => Hash::make($password),
             ]);
 
             $request->session()->put('username', $username);// sessionデータをセット

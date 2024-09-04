@@ -159,18 +159,14 @@ nav a:hover {
 
 /* -----タイムライン----- */
 /* container */
-.post_timeline {
-    width: 80%;
-    padding-left: 80px;
-}
-
 .post_block {
     display: flex;
     height: 150px;
     background-color: #fff;
     margin-bottom: 4px;
+    padding-left: 80px;
     padding-top: 10px;
-    border-bottom: solid;
+    border-bottom: solid 1px;
     border-color: #727272;
 }
 
@@ -288,6 +284,9 @@ nav a:hover {
     background-color: #58B2DC;
 }
 
+.btn-primary {
+    background-color: #DC143C;
+}
 
 /* フォロ－リスト */
 .follows {
@@ -323,12 +322,14 @@ nav a:hover {
 
 /* プロフィール */
 .user_profile {
-    width: 80%;
     height: 180px;
-    padding-left: 80px;
     display: flex;
     align-items: center;
     border-bottom: solid 10px #dcdcdc;
+}
+
+.profile_icon {
+    padding-left: 80px;
 }
 
 .name_bio {
@@ -345,5 +346,5 @@ nav a:hover {
 }
 
 .profile_contents {
-    width: 800px;
+    width: 820px;
 }
