@@ -39,7 +39,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/top','PostsController@index');
     Route::post('/top','PostsController@postCreate');
 // ポスト編集
-    Route::get('/top/{id}/update-form','PostsController@postUpdateForm');
     Route::post('/top/update','PostsController@postUpdate');
 // ポスト削除
     Route::get('/top/{id}/delete','PostsController@postDelete');
