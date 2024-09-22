@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterFormRequest;
-
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {

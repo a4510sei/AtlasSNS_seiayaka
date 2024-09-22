@@ -2,17 +2,26 @@
 
 html {}
 
-body {}
+body {
+    width: 100%;
+    max-width: 1280px;
+}
 
 /* header */
 header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #186AC9;
-    height: 10%;
+    height: 80px;
+    margin-top: 20px;
+}
+
+/* main content */
+#row {
     width: 100%;
-    max-width: 100%;
+    display: flex;
 }
 
 /* 共通パーツ：ボタン */
@@ -55,6 +64,7 @@ header {
 }
 
 .site_title img {
+    margin: 20px;
     height: 60px;
     width: auto;
 }
@@ -122,22 +132,15 @@ nav a:hover {
     content: "－";
 }
 
-/* main content */
-#row {
-    display: flex;
-    flex-flow: row wrap;
-}
-
 /* -----アコーディオンメニューおわり----- */
 
 /* -----サイドバー----- */
 #container {
-    width: 100%;
-    flex: 0 0 80%;
+    flex-grow: 2;
 }
 
 #side-bar {
-    flex: 0 0 19%;
+    flex-grow: 1;
     border-left: 1px solid #727272;
 }
 

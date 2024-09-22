@@ -81,15 +81,10 @@
         </div>
     </header>
     <!-- メニュー内容 -->
-    <div id="posts">
-    <!-- POST投稿機能-->
-        <div class="container">
-        </div>
-    </div>
     <div id="row">
         <div id="container">
             @yield('content')
-        </div >
+        </div>
         <div id="side-bar">
             <div id="confirm">
                 <div class="side-username">

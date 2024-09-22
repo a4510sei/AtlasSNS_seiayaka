@@ -4,6 +4,7 @@ html {
     height: 100%;
 }
 
+/* 共通パーツ */
 body {
     height: 100%;
     width: 100%;
@@ -45,33 +46,9 @@ header h1 {
 
 .login h1 {
     text-align: center;
-    padding: 20px;
+    margin: 20px;
 }
 
-.login_form {
-    padding: 10px;
-}
-
-input {
-    background-color: #f2f4f5;
-    border: none;
-    border-radius: 3px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #333;
-}
-
-.submit_btn {
-    margin-top: 10px;
-    margin-left: 40%;
-}
-
-.login_link {
-    text-align: center;
-    margin-top: 30px;
-}
-
-/* 共通パーツ：ボタン */
 .btn {
     width: 130px;
     height: 50px;
@@ -91,4 +68,64 @@ input {
 a,
 a:hover {
     color: #fff;
+}
+
+.login_link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* ログイン・新規登録フォーム */
+.login_form {
+    padding: 10px;
+}
+
+input {
+    background-color: #f2f4f5;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.submit_btn {
+    margin-top: 10px;
+    margin-left: 40%;
+}
+
+/* 登録完了画面 */
+.add {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login h2 {
+    text-align: center;
+    font-size: 20px;
+    font-style: bold;
+}
+
+.top {
+    padding: 10px 0 20px 0;
+}
+
+.bottom {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.add_btn {
+    margin-left: 0 20px;
+    padding: 10px 50px;
+    text-align: center;
+}
+
+.add_link {
+    padding: 20px 0;
+    align-self: center;
+    text-align: center;
 }
