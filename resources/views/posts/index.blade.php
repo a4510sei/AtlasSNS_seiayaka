@@ -44,33 +44,33 @@
           <!-- 編集ボタン -->
           <div class="edit">
             <!-- モーダルで編集画面を開く -->
-             <div id="modal-content">
-               <p><a id="modal-open" class="button-link"><img src="images/edit.png"alt="編集する"></a></p>
-               <script>
-                 $("#modal-open").click(
-                   function(){
-                     //[id:modal-open]をクリックしたら起こる処理
-                    <div class="postUpdateForm">
-                        <div class="form-group">
-                          {{ Form::open(['url' => ['/top/update']]) }}
-                          @csrf
-                          {{ Form::hidden('id', $post->id) }}
-                          {{ Form::label('修正する投稿内容を入力してください。') }}
-                          {{ Form::input('text', 'upPost', $post->post, ['required', 'class' => 'form-post']) }}
-                          {{ Form::button(Html::image('images/post.png', '投稿', ['width' => '30', 'height' => '30']), ['type' => 'submit']) }}
-                          {{ Form::close() }}
-                        </div>
-                    </div>
-                    });
-                    </script>
-               <p><a id="modal-close" class="button-link">閉じる</a></p>
-             </div>
-             <!-- モーダルOPEN時の背景 -->
-             <div id="modal-overlay"></div>
-              <a href="/top/{{ $post->id }}/update-form">
-                <img src="images/edit.png"alt="編集する">
-              </a>
-          </div>
+             <!-- <div id="modal-content"> -->
+               <!-- <p><a id="modal-open" class="button-link"><img src="images/edit.png"alt="編集する"></a></p> -->
+               <!-- <script> -->
+                //  $("#modal-open").click(
+                  //  function(){
+                     [id:modal-open]をクリックしたら起こる処理
+                    // <div class="postUpdateForm">
+                        // <div class="form-group">
+                          // {{ Form::open(['url' => ['/top/update']]) }}
+                          // @csrf
+                          // {{ Form::hidden('id', $post->id) }}
+                          // {{ Form::label('修正する投稿内容を入力してください。') }}
+                          // {{ Form::input('text', 'upPost', $post->post, ['required', 'class' => 'form-post']) }}
+                          // {{ Form::button(Html::image('images/post.png', '投稿', ['width' => '30', 'height' => '30']), ['type' => 'submit']) }}
+                          // {{ Form::close() }}
+                        // </div>
+                    // </div>
+                    // });
+                    // </script>
+               <!-- <p><a id="modal-close" class="button-link">閉じる</a></p> -->
+             <!-- </div> -->
+             モーダルOPEN時の背景
+             <!-- <div id="modal-overlay"></div> -->
+              <!-- <a href="/top/{{ $post->id }}/update-form"> -->
+                <!-- <img src="images/edit.png"alt="編集する"> -->
+              <!-- </a> -->
+          <!-- </div> -->
           <!-- 削除ボタン -->
           <div class="trash">
             <a href="/top/{{ $post->id }}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">

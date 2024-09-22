@@ -51,14 +51,6 @@ class PostsController extends Controller
         Post::create(['user_id' => $id,'post' => $post]);
         return back();
     }
-    // post編集用ページ
-       public function postUpdateForm($id)
-    {
-        //postテーブルのプライマリーキー選択
-        $post = Post::where('id', $id)->first();
-        return view('posts.postUpdate', ['post'=>$post]);
-
-    }
 // ポスト編集実処理
     public function postUpdate(Request $request)
     {

@@ -21,11 +21,12 @@
 </head>
 <body>
   <header>
-    <h1><img src="images/atlas.png"></h1>
-    <p>Social Network Service</p>
+    <div class="logout_header"></div>
+    <img src="images/atlas.png">
+    <h1>Social Network Service</h1>
   </header>
   <div id="container">
-    @yield('content')
+      @yield('content')
   </div>
 
 </body>
