@@ -80,11 +80,12 @@
             </div>
         </div>
     </header>
-    <!-- メニュー内容 -->
+    <!-- メインコンテンツ -->
     <div id="row">
         <div id="container">
             @yield('content')
         </div>
+    <!-- サイドバー -->
         <div id="side-bar">
             <div id="confirm">
                 <div class="side-username">
@@ -97,15 +98,26 @@
                 $followed_cnt = DB::table('follows')->where('followed_id',$id)->count();
                 ?>
                 <div class="view-follow">
-                  <p>フォロー数　　　　　{{ $following_cnt }}人</p>
-                  <p class="btn btn-link"><a href="/follows/follow-list">フォローリスト</a></p>
+                    <div class ="view-follow-text">
+                      <p>フォロー数　　　　　{{ $following_cnt }}人</p>
+                    </div>
+                    <div class="view-follow-link">
+                        <div class="btn btn-link"><a href="/follows/follow-list">フォローリスト</a></div>
+                    </div>
                 </div>
                 <div class="view-follow">
-                  <p>フォロワー数　　　　{{ $followed_cnt }}人</p>
-                  <p class="btn btn-link"><a href="/follows/follower-list">フォロワーリスト</a></p>
+                    <div class ="view-follow-text">
+                      <p>フォロワー数　　　　{{ $followed_cnt }}人</p>
+                    </div>
+                    <div class="view-follow-link">
+                      <div class="btn btn-link"><a href="/follows/follower-list">フォロワーリスト</a></div>
+                    </div>
+                </div>
+                <div class="side-bar-border">
                 </div>
                 <div class="to-user-search">
-                <p class="btn btn-link"><a href="/users/search">ユーザー検索</a></p>
+                    <div class="btn btn-link"><a href="/users/search">ユーザー検索</a></div>
+                </div>
             </div>
         </div>
     </div>

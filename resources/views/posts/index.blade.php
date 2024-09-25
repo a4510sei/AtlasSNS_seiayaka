@@ -3,15 +3,21 @@
 @section('content')
 
 <!-- 投稿機能 -->
-<div class="post_input_form">
-  {!! Form::open(['url' => '/top']) !!}
-  @csrf
-  <div class="input_textarea">
-    {{ Form::input('text', 'post', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。', 'maxlength' => '150']) }}
-    {{ Form::button(Html::image('images/post.png', '投稿', ['width' => '30', 'height' => '30']), ['type' => 'submit']) }}
+ <div class="post_input">
+   {!! Form::open(['url' => '/top']) !!}
+   @csrf
+   <div class="post_input_form">
+     <!-- ユーザアイコン -->
+     <?php $user = Auth::user(); ?>
+     <div class="user_icon">
+       <img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン画像" >
+      </div>
+      {{Form::textarea('post', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。', 'maxlength' => '150', 'cols' => '100','rows' => '3'])}}
+      <!-- {{ Form::input('text', 'post', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。', 'maxlength' => '150']) }} -->
+      {{ Form::button(Html::image('images/post.png', '投稿', ['class' => 'post_submit','width' => '50', 'height' => '50']), ['type' => 'submit']) }}
+    </div>
+    {!! Form::close() !!}
   </div>
-  {!! Form::close() !!}
-</div>
 
 <!-- 投稿表示 -->
 <div class="post_timeline">
