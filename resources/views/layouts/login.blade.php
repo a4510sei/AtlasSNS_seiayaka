@@ -29,8 +29,7 @@
     <title>{{ config('app.name', 'AtlasSNS') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('/js/app.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -42,7 +41,7 @@
     <header>
         <!-- サイトタイトル-->
         <div class = "site_title">
-            <h1><a href="/top"><img src="images/atlas.png" alt="ロゴ画像" ></a></h1>
+            <h1><a href="/top"><img src="/images/atlas.png" alt="ロゴ画像" ></a></h1>
         </div>
         <!-- ヘッダーサイド-->
         <div class="header_side">

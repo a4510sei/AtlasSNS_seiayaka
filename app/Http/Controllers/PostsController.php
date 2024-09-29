@@ -54,11 +54,12 @@ class PostsController extends Controller
 // ポスト編集実処理
     public function postUpdate(Request $request)
     {
+        dd($request->input());
         // Postテーブルを入力した内容でUpdate
-        $id = $request->input('id');
-        $up_post = $request->input('upPost');
+        $post_id = $request->input('modal_id');
+        $up_post = $request->input('modal_post');
         // 2つ目の処理
-        Post::where('id', $id)->update([
+        Post::where('id', $post_id)->update([
               'post' => $up_post,
         ]);
         // 3つ目の処理

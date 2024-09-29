@@ -3,17 +3,16 @@
 @section('content')
 
 <!-- 投稿機能 -->
- <div class="post_input">
+ <div class="contents_head">
    {!! Form::open(['url' => '/top']) !!}
    @csrf
-   <div class="post_input_form">
+   <div class="input_form">
      <!-- ユーザアイコン -->
      <?php $user = Auth::user(); ?>
      <div class="user_icon">
        <img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン画像" >
       </div>
       {{Form::textarea('post', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。', 'maxlength' => '150', 'cols' => '100','rows' => '3'])}}
-      <!-- {{ Form::input('text', 'post', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。', 'maxlength' => '150']) }} -->
       {{ Form::button(Html::image('images/post.png', '投稿', ['class' => 'post_submit','width' => '50', 'height' => '50']), ['type' => 'submit']) }}
     </div>
     {!! Form::close() !!}
@@ -50,32 +49,7 @@
           <!-- 編集ボタン -->
           <div class="edit">
             <!-- モーダルで編集画面を開く -->
-             <!-- <div id="modal-content"> -->
-               <!-- <p><a id="modal-open" class="button-link"><img src="images/edit.png"alt="編集する"></a></p> -->
-               <!-- <script> -->
-                  <!-- $("#modal-open").click( -->
-                  <!-- //  function(){ -->
-                     <!-- [id:modal-open]をクリックしたら起こる処理 -->
-                     <div class="postUpdateForm">
-                         <div class="form-group">
-                           <!-- {{ Form::open(['url' => ['/top/update']]) }} -->
-                           <!-- @csrf -->
-                           <!-- {{ Form::hidden('id', $post->id) }} -->
-                           <!-- {{ Form::label('修正する投稿内容を入力してください。') }} -->
-                           <!-- {{ Form::input('text', 'upPost', $post->post, ['required', 'class' => 'form-post']) }} -->
-                           <!-- {{ Form::button(Html::image('images/post.png', '投稿', ['width' => '30', 'height' => '30']), ['type' => 'submit']) }} -->
-                           <!-- {{ Form::close() }} -->
-                         </div>
-                     </div>
-                     <!-- }); -->
-               <!-- </script> -->
-               <!-- <p><a id="modal-close" class="button-link">閉じる</a></p> -->
-             <!-- </div> -->
-             モーダルOPEN時の背景
-             <!-- <div id="modal-overlay"></div> -->
-              <!-- <a href="/top/{{ $post->id }}/update-form"> -->
-                <!-- <img src="images/edit.png"alt="編集する"> -->
-              <!-- </a> -->
+            <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="images/edit.png"alt="編集する"></a>
           </div>
           <!-- 削除ボタン -->
           <div class="trash">
@@ -91,6 +65,45 @@
     </div>
   </div>
     @endforeach
+   <!-- モーダルの中身 -->
+    <script>
+        $(function(){
+            // 編集ボタン(class="js-modal-open")が押されたら発火
+            $('.js-modal-open').on('click',function(){
+                // モーダルの中身(class="js-modal")の表示
+                $('.js-modal').fadeIn();
+                // 押されたボタンから投稿内容を取得し変数へ格納
+                var upPost = $(this).attr('post');
+                // 押されたボタンから投稿のidを取得し変数へ格納（どの投稿を編集するか特定するのに必要な為）
+                var post_id = $(this).attr('post_id');
+
+                // 取得した投稿内容をモーダルの中身へ渡す
+                $('.modal_post').text(upPost);
+                // 取得した投稿のidをモーダルの中身へ渡す
+                $('.modal_id').val(post_id);
+                return false;
+            });
+
+            // 背景部分や閉じるボタン(js-modal-close)が押されたら発火
+            $('.js-modal-close').on('click',function(){
+                // モーダルの中身(class="js-modal")を非表示
+                $('.js-modal').fadeOut();
+                return false;
+            });
+        });
+    </script>
+    <div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+           <form action="/top/update" method="post">
+                <textarea name="" class="modal_post"></textarea>
+                <input type="hidden" name="" class="modal_id" value="">
+                <input type="submit" value="更新">
+                {{ csrf_field() }}
+           </form>
+            <a class="js-modal-close" href=""><img src="images/edit.png"alt="閉じる"></a>
+        </div>
+    </div>
 </div>
 
 @endsection

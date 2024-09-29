@@ -2,20 +2,22 @@
 
 @section('content')
 <!-- フォローリスト -->
-<div class="follows">
-  <div class="follows_title">
-    <h1>フォローリスト</h1>
-  </div>
-  <div class="follows_list">
-    @foreach($follows as $follow)
-    <div class="user_icon">
-      <!-- フォローしているユーザーのアイコン画像を文字列で取得 -->
-      <?php
+<div class="contents_head">
+  <div class="follows">
+    <div class="follows_title">
+      <h1>フォローリスト</h1>
+    </div>
+    <div class="follows_list">
+      @foreach($follows as $follow)
+      <div class="user_icon">
+        <!-- フォローしているユーザーのアイコン画像を文字列で取得 -->
+        <?php
         $images = DB::table('users')->where('id', $follow->followed_id)->pluck('images')->first();
         ?>
-      <img src="{{asset('images/'.$images)}}" alt="ユーザーアイコン画像" >
+        <img src="{{asset('./images/'.$images)}}" alt="ユーザーアイコン画像" >
+      </div>
+      @endforeach
     </div>
-    @endforeach
   </div>
 </div>
 <!-- 投稿表示 -->

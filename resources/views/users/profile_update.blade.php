@@ -6,53 +6,62 @@
 
 <!-- プロフィール更新 -->
 <div class="profile_update">
-
-<?php
-// ログインIDから現在のuser情報を取得
-$id = Auth::id();
-$user = DB::table('users')->find($id);
-?>
-{!! Form::open(['url' => '/users/profile_update', 'files' => true]) !!}
-@csrf
-<!-- ユーザー名-->
-<div class="user_update_form">
-  {{ Form::label('ユーザー名') }}
-  {{ Form::input('text', 'username', $user->username,['required', 'class' => 'input']) }}
-</div>
-<!-- アドレス-->
-<div class="user_update_form">
-  {{ Form::label('メールアドレス') }}
-  {{ Form::input('text', 'mail',$user->mail,['required', 'class' => 'input']) }}
-</div>
-<!-- パスワード-->
-<div class="user_update_form">
-  {{ Form::label('パスワード') }}
-  {{ Form::password('password',['required', 'class' => 'input']) }}
-</div>
-
-<!-- パスワード確認-->
-<div class="user_update_form">
-  {{ Form::label('パスワード確認') }}
-  {{ Form::password('password_confirmation',['required', 'class' => 'input']) }}
-</div>
-
-<!-- 自己紹介-->
-<div class="user_update_form">
-  {{ Form::label('自己紹介') }}
-  {{ Form::input('text', 'bio',$user->bio,['class' => 'input']) }}
-</div>
-
-<!-- アイコン画像 -->
-<div class="user_update_form">
-  {{ Form::label('アイコン画像') }}
-  {{ Form::file("images") }}
-</div>
-
-<!-- 更新ボタン -->
-<button type="submit" class="btn btn-primary">更新</button>
-
-{!! Form::close() !!}
-
+    <?php
+    // ログインIDから現在のuser情報を取得
+    $id = Auth::id();
+    $user = DB::table('users')->find($id);
+    ?>
+    {!! Form::open(['url' => '/users/profile_update', 'files' => true]) !!}
+    @csrf
+    <table class="profile_update_form">
+      <tr>
+        <th class="pro_icon"></th>
+        <th class="pro_label"></th>
+        <th class="pro_form"></th>
+      </tr>
+      <!-- ユーザー名-->
+      <tr>
+        <td><img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン画像" ></td>
+        <td>{{ Form::label('ユーザー名') }}</td>
+        <td>{{ Form::input('text', 'username', $user->username,['required', 'class' =>    'input_update']) }}</td>
+      </tr>
+      <!-- アドレス-->
+      <tr>
+        <td></td>
+        <td>{{ Form::label('メールアドレス') }}</td>
+        <td>{{ Form::input('text', 'mail',$user->mail,['required', 'class' => 'input_update']) }}</td>
+      </tr>
+      <!-- パスワード-->
+      <tr>
+        <td></td>
+        <td>{{ Form::label('パスワード') }}</td>
+        <td>{{ Form::password('password',['required', 'class' => 'input_update']) }}</td>
+      </tr>
+      <!-- パスワード確認-->
+      <tr>
+        <td></td>
+        <td>{{ Form::label('パスワード確認') }}</td>
+        <td>{{ Form::password('password_confirmation',['required', 'class' => 'input_update']) }}</td>
+      </tr>
+      <!-- 自己紹介-->
+      <tr>
+        <td></td>
+        <td>{{ Form::label('自己紹介') }}</td>
+        <td>{{ Form::input('text', 'bio',$user->bio,['class' => 'input_update']) }}</td>
+      </tr>
+      <!-- アイコン画像 -->
+      <tr>
+        <td></td>
+        <td>{{ Form::label('アイコン画像') }}</td>
+        <td>{{ Form::file('image',['class' => 'img_update']) }}</td>
+      </tr>
+    </table>
+      <!-- 更新ボタン -->
+    <div class="submit_btn">
+      <br>
+      <button type="submit" class="btn btn-primary">更新</button>
+    </div>
+    {!! Form::close() !!}
 </div>
 
 
