@@ -564,3 +564,18 @@ td img {
     transform: translate(-50%, -50%);
     width: 60%;
 }
+
+.modal input {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.submit {
+    border: none;
+
+}
+
+.modal img {
+    width: 30px;
+    height: 30px;
+}

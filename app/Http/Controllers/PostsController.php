@@ -51,13 +51,13 @@ class PostsController extends Controller
         Post::create(['user_id' => $id,'post' => $post]);
         return back();
     }
-// ポスト編集実処理
+// ポスト編集
     public function postUpdate(Request $request)
     {
-        dd($request->input());
         // Postテーブルを入力した内容でUpdate
-        $post_id = $request->input('modal_id');
-        $up_post = $request->input('modal_post');
+        $post_id = $request->input('post_id');
+        $up_post = $request->input('up_post');
+
         // 2つ目の処理
         Post::where('id', $post_id)->update([
               'post' => $up_post,

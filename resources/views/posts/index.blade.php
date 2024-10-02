@@ -49,7 +49,7 @@
           <!-- 編集ボタン -->
           <div class="edit">
             <!-- モーダルで編集画面を開く -->
-            <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="images/edit.png"alt="編集する"></a>
+            <a class="js-modal-open" href="" post="{{ $p_post = $post->post }}" post_id="{{ $p_id = $post->id }}"><img src="images/edit.png"alt="編集する"></a>
           </div>
           <!-- 削除ボタン -->
           <div class="trash">
@@ -73,12 +73,12 @@
                 // モーダルの中身(class="js-modal")の表示
                 $('.js-modal').fadeIn();
                 // 押されたボタンから投稿内容を取得し変数へ格納
-                var upPost = $(this).attr('post');
+                var up_post = $(this).attr('post');
                 // 押されたボタンから投稿のidを取得し変数へ格納（どの投稿を編集するか特定するのに必要な為）
                 var post_id = $(this).attr('post_id');
 
                 // 取得した投稿内容をモーダルの中身へ渡す
-                $('.modal_post').text(upPost);
+                $('.modal_post').text(up_post);
                 // 取得した投稿のidをモーダルの中身へ渡す
                 $('.modal_id').val(post_id);
                 return false;
@@ -95,15 +95,18 @@
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
-           <form action="/top/update" method="post">
-                <textarea name="" class="modal_post"></textarea>
-                <input type="hidden" name="" class="modal_id" value="">
-                <input type="submit" value="更新">
-                {{ csrf_field() }}
-           </form>
-            <a class="js-modal-close" href=""><img src="images/edit.png"alt="閉じる"></a>
+          <form action="/top/update" method="post">
+            <input type="hidden" name="post_id" class="modal_id" value="">
+            <div class="up_post_form">
+              <textarea name="up_post" class="modal_post" maxlength="150" cols = "100" rows = "3" ></textarea>
+            </div>
+            <div class="up_post_btn">
+              {{ Form::button(Html::image('images/edit.png', '投稿', ['width' => '30', 'height' => '30']), ['type' => 'submit','class' => 'submit']) }}
+            </div>
+            {{ csrf_field() }}
+            {{ Form::close() }}
+            <a class="js-modal-close" href=""></a>
         </div>
     </div>
 </div>
-
 @endsection
