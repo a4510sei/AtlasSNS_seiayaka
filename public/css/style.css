@@ -335,18 +335,15 @@ nav a:hover {
 /* edit_trash */
 .edit_trash {
     height: 80px;
-    padding-top: 20px;
+    padding: 20px;
     justify-content: flex-end;
     align-items: flex-end;
     display: flex;
 }
 
-.edit_trash img {
-    padding-right: 10px;
-}
-
 .edit img {
-    width: 60px;
+    width: 40px;
+    margin-right: 10px;
 }
 
 /* trash icon */
@@ -355,7 +352,7 @@ nav a:hover {
 }
 
 .trash img:first-of-type {
-    width: 60px;
+    width: 40px;
 }
 
 .trash:hover img:first-of-type {
@@ -368,7 +365,7 @@ nav a:hover {
     top: -10px;
     left: -10px;
     opacity: 0;
-    width: 80px;
+    width: 60px;
 }
 
 .trash:hover img:last-of-type {
