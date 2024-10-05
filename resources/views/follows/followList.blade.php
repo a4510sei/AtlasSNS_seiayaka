@@ -12,9 +12,11 @@
       <div class="user_icon">
         <!-- フォローしているユーザーのアイコン画像を文字列で取得 -->
         <?php
-        $images = DB::table('users')->where('id', $follow->followed_id)->pluck('images')->first();
+        $user = DB::table('users')->where('id', $follow->followed_id)->first();
         ?>
-        <img src="{{asset('./images/'.$images)}}" alt="ユーザーアイコン画像" >
+        <a href="/users/{{ $user->id }}/profile">
+          <img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン画像" >
+        </a>
       </div>
       @endforeach
     </div>

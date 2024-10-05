@@ -98,7 +98,7 @@
           <form action="/top/update" method="post">
             <input type="hidden" name="post_id" class="modal_id" value="">
             <div class="up_post_form">
-              <textarea name="up_post" class="modal_post" maxlength="150" cols = "100" rows = "3" ></textarea>
+              <textarea name="up_post" class="modal_post" maxlength="150" cols = "80" rows = "5" ></textarea>
             </div>
             <div class="up_post_btn">
               {{ Form::button(Html::image('images/edit.png', '投稿', ['width' => '30', 'height' => '30']), ['type' => 'submit','class' => 'submit']) }}

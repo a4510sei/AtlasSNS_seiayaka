@@ -16,40 +16,42 @@
         <img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン画像" >
       </div>
     </div>
-    <div class="user_textarea">
+    <div class="profile_main">
       <!-- ユーザー名 -->
       <div class='name_bio'>
-        <div class = 'profile_header'>
+        <div class = 'name_bio_header'>
           <h1>ユーザー名</h1>
         </div>
-        <div class= 'profile_contents'>
-          <h1>{{ $user->username }}</h1>
+        <div class= 'name_bio_contents'>
+          <p>{{ $user->username }}</p>
         </div>
       </div>
       <!-- 自己紹介 -->
       <div class='name_bio'>
-        <div class = 'profile_header'>
+        <div class = 'name_bio_header'>
           <h1>自己紹介</h1>
         </div>
-        <div class= 'profile_contents'>
-          <h1>{{ $user->bio }}</h1>
+        <div class= 'name_bio_contents'>
+          <p>{{ $user->bio }}</p>
         </div>
       </div>
     </div>
     <!-- フォロー/フォロー解除 -->
-    <div class="follow_remove">
-      @if(in_array($user->id , $followed_ids))
-        <!-- フォロー済：フォロー解除 -->
-        <a class="btn btn_remove" href="/follows/{{ $user->id }}/delete">
-          <p>フォロー解除</p>
-        </a>
-      @else
-        <!-- フォロー未済：フォローする -->
-        <a class="btn btn_follow" href="/follows/{{ $user->id }}/insert">
-          <p>フォローする</p>
-        </a>
-      @endif
-    </div>
+     <div class="profile_follow">
+       <div class="follow_remove">
+         @if(in_array($user->id , $followed_ids))
+         <!-- フォロー済：フォロー解除 -->
+         <a class="btn btn_remove" href="/follows/{{ $user->id }}/delete">
+           <p>フォロー解除</p>
+          </a>
+          @else
+          <!-- フォロー未済：フォローする -->
+          <a class="btn btn_follow" href="/follows/{{ $user->id }}/insert">
+            <p>フォローする</p>
+          </a>
+          @endif
+        </div>
+      </div>
   </div>
 
 <!-- 投稿表示 -->

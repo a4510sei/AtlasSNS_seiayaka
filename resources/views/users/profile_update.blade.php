@@ -53,7 +53,7 @@
       <tr>
         <td></td>
         <td>{{ Form::label('アイコン画像') }}</td>
-        <td>{{ Form::file('image',['class' => 'img_update']) }}</td>
+        <td>{{ Form::file('images',['class' => 'img_update']) }}</td>
       </tr>
     </table>
       <!-- 更新ボタン -->

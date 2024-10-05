@@ -513,24 +513,35 @@ td img {
 }
 
 .profile_icon {
-    padding-left: 80px;
+    padding-left: 5%;
+}
+
+/* profile文字部分 */
+.profile_main {
+    width: 60%;
 }
 
 .name_bio {
     display: flex;
-    margin: 20px;
+    margin: 10px;
+    padding: 10px;
 }
 
 .name_bio h1 {
-    font-size: x-large;
+    font-size: 22px;
 }
 
-.profile_header {
+.name_bio_header {
     width: 180px;
 }
 
-.profile_contents {
-    width: 820px;
+.name_bio_contents {
+    width: 50%;
+}
+
+.profile_follow {
+    margin-left: 10%;
+    margin-bottom: 0;
 }
 
 
@@ -545,7 +556,7 @@ td img {
     height: 100vh;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 80%;
 }
 
 .modal__bg {
@@ -562,17 +573,33 @@ td img {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
+    width: auto;
 }
 
-.modal input {
+.modal_post {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal_post textarea {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.up_post_btn {
+    width: 50px;
+    height: auto;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .submit {
     border: none;
-
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .modal img {
