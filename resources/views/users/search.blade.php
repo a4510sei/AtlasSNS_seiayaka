@@ -4,7 +4,7 @@
 @section('content')
 <!-- ユーザー検索 -->
 <div class="contents_head">
-    {{ Form::open(['url' => ['/users/search_result']]) }}
+    {{ Form::open(['url' => '/users/search_result','method' => 'GET']) }}
     @csrf
   <div class="input_form">
     {{ Form::input('text', 'keyword', null, ['required', 'class' => 'form-search',  'placeholder' => 'ユーザー名']) }}

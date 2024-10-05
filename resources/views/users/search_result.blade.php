@@ -2,6 +2,19 @@
 @extends('layouts.login')
 <!-- contentセクション  -->
 @section('content')
+<!-- ユーザー検索 -->
+<div class="contents_head">
+    {{ Form::open(['url' => '/users/search_result','method' => 'GET']) }}
+    @csrf
+  <div class="input_form">
+    {{ Form::input('text', 'keyword', null, ['required', 'class' => 'form-search',  'placeholder' => 'ユーザー名']) }}
+    {{ Form::button(Html::image('images/search.png', '検索', ['width' => '40', 'height'   => '40']), ['type' => 'submit']) }}
+  </div>
+    {!! Form::close() !!}
+  <h1>検索ワード：{{ $keyword }}</h1>
+
+</div>
+
 
 <!-- ユーザー検索結果 -->
 <div class="user_searchResult">
@@ -9,7 +22,6 @@
   // フォローしているユーザーのidを取得し、配列にする。
   $followed_ids = DB::table('follows')->where('following_id',$id)->pluck('followed_id')->toArray();
 ?>
-    <h1>{{ $keyword }} での検索結果</h1>
     @foreach($users as $user)
     <!-- 自分以外のユーザーを表示 -->
         <!-- ①ユーザアイコン -->

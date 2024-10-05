@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/users/profile_update','UsersController@profileUpdate');
 // ユーザー検索
     Route::get('/users/search','UsersController@search');
-    Route::post('/users/search_result','UsersController@searchResult');
+    Route::get('/users/search_result','UsersController@searchResult');
 // フォローリスト・フォロワーリスト
     Route::get('/follows/follow-list','FollowsController@followList');
     Route::get('/follows/follower-list','FollowsController@followerList');
