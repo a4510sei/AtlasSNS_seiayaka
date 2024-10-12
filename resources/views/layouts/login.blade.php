@@ -101,7 +101,7 @@
                       <p>フォロー数　　　　　{{ $following_cnt }}人</p>
                     </div>
                     <div class="view-follow-link">
-                        <div class="btn btn-link"><a href="/follows/follow-list">フォローリスト</a></div>
+                        <a class="btn btn-link" href="/follows/follow-list">フォローリスト</a>
                     </div>
                 </div>
                 <div class="view-follow">
@@ -109,13 +109,13 @@
                       <p>フォロワー数　　　　{{ $followed_cnt }}人</p>
                     </div>
                     <div class="view-follow-link">
-                      <div class="btn btn-link"><a href="/follows/follower-list">フォロワーリスト</a></div>
+                      <a class="btn btn-link" href="/follows/follower-list">フォロワーリスト</a>
                     </div>
                 </div>
                 <div class="side-bar-border">
                 </div>
                 <div class="to-user-search">
-                    <div class="btn btn-link"><a href="/users/search">ユーザー検索</a></div>
+                    <a class="btn btn-link" href="/users/search">ユーザー検索</a>
                 </div>
             </div>
         </div>

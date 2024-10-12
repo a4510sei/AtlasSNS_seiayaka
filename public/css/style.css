@@ -5,7 +5,7 @@ html {}
 body {
     font-family: "Meiryo", "source-code-pro", monospace;
     width: 100%;
-    max-width: 1280px;
+    min-width: 1280px;
 }
 
 /* header */
@@ -14,15 +14,15 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #186AC9;
+    background-color: #186AC9;
     height: 80px;
-    margin-top: 20px;
 }
 
 /* main content */
 #row {
     width: 100%;
     display: flex;
+    background-color: #fff;
 }
 
 /* 共通パーツ：ボタン */
@@ -40,6 +40,7 @@ header {
 
 .btn-link a,
 .btn-link a:hover {
+    display: block;
     color: #fff;
 }
 
@@ -111,19 +112,20 @@ nav {
 }
 
 nav li {
-    width: 170px;
-    display: block;
-    padding: 30px;
-    text-align: center;
     border: 1px solid;
 }
 
 nav a {
+    width: 170px;
+    display: block;
+    padding: 30px;
+    text-align: center;
     color: #727272;
 }
 
 /* カーソルオン時は背景を紺に、文字色を白に */
 nav li:hover {
+    display: block;
     background-color: #186AC9;
 }
 
@@ -158,14 +160,17 @@ nav a:hover {
 
 /* -----サイドバー----- */
 #container {
-    max-width: 1000px;
+    width: 80%;
     flex-grow: 2;
 }
 
 #side-bar {
-    max-width: 280px;
     flex-grow: 1;
     border-left: 1px solid #727272;
+}
+
+.view-follow-link a {
+    display: block;
 }
 
 .side-username {
@@ -198,7 +203,7 @@ nav a:hover {
 
 /* post 投稿 */
 .contents_head {
-    height: 120px;
+    height: 150px;
     margin-top: 10px;
     padding: 10px 50px;
     display: flex;
@@ -207,6 +212,7 @@ nav a:hover {
 }
 
 .input_form {
+    height: 100%;
     width: 80%;
     display: flex;
 }
@@ -217,13 +223,15 @@ nav a:hover {
 }
 
 .input_form textarea {
-    background-color: #f2f4f5;
     border: none;
-    width: 600px;
-    height: 100px;
-    font-size: 16px;
-    color: #333;
+    width: 100%;
+    height: 10em;
+    padding: 10px;
+    /* textareaのリサイズ指定OFF */
     resize: none;
+    /* 行間の指定 */
+    height: calc(1.5 * 5em);
+    line-height: 1.5;
 }
 
 .input_form input {
@@ -236,6 +244,7 @@ nav a:hover {
     border-radius: 20px;
     align-self: flex-end;
     padding-left: 50px;
+    background: none;
 }
 
 .post_submit img {
@@ -251,10 +260,10 @@ nav a:hover {
 /* container */
 .post_block {
     display: flex;
-    height: 150px;
+    height: 200px;
     background-color: #fff;
     margin-bottom: 4px;
-    padding-left: 80px;
+    padding-left: 10%;
     padding-top: 10px;
     border-bottom: solid 1px;
     border-color: #727272;
@@ -264,7 +273,8 @@ nav a:hover {
 .post_textarea {
     flex-grow: 2;
     max-width: 500px;
-    padding-left: 10px;
+    padding: 10px;
+    line-height: 1.5;
 }
 
 .post_user {
@@ -283,8 +293,12 @@ nav a:hover {
 
 /* post edit */
 .post_edit_time {
+    height: 100%;
     flex-grow: 1;
     margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
 }
 
 /* 編集画面モーダル */
@@ -334,8 +348,8 @@ nav a:hover {
 
 /* edit_trash */
 .edit_trash {
-    height: 80px;
-    padding: 20px;
+    height: 80%;
+    margin-bottom: 2%;
     justify-content: flex-end;
     align-items: flex-end;
     display: flex;
@@ -343,7 +357,7 @@ nav a:hover {
 
 .edit img {
     width: 40px;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 /* trash icon */
@@ -557,9 +571,11 @@ td img {
 }
 
 .modal__bg {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     height: 100vh;
-    position: absolute;
+    max-width: inherit;
+    /* 親クラスのposition: relativeに影響されない */
+    position: fixed;
     width: 100%;
 }
 

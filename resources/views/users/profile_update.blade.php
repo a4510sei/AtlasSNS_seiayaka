@@ -47,7 +47,7 @@
       <tr>
         <td></td>
         <td>{{ Form::label('自己紹介') }}</td>
-        <td>{{ Form::input('text', 'bio',$user->bio,['class' => 'input_update']) }}</td>
+        <td>{{ Form::input('text', 'bio',$user->bio,['class' => 'input_update', 'maxlength' => '150']) }}</td>
       </tr>
       <!-- アイコン画像 -->
       <tr>
