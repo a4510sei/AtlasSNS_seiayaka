@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterFormRequest extends FormRequest
+class UpdateFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,11 +27,11 @@ class RegisterFormRequest extends FormRequest
         if ($this->isMethod('get')) {
             return [];
         }
-
+        $id = $this->input('id');
         // Validation rules for POST requests
         return [
             'username' => 'required',
-            'mail' => 'required|unique:users|email',
+            'mail' => 'required|email|unique:users,mail,'.$id.',id',
             'password' => 'required|same:password_confirmation'
         ];
     }

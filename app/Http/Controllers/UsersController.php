@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\UpdateFormRequest;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\User;
@@ -45,12 +45,12 @@ class UsersController extends Controller
         return view('users.search_result',['id'=>$id,'users'=>$users,'keyword'=>$keyword,]);
     }
 
-    public function profileUpdate(Request $request)
+    public function profileUpdate(UpdateFormRequest $request)
     {
         if($request->isMethod('post')){  //←POSTだったら
             // postの処理
             // Update対象（全項目共通）
-            $id = Auth::id();
+            $id = $request->input('id');
             // 必須更新
             // ユーザー名
             $username = $request->input('username');

@@ -165,6 +165,7 @@ nav a:hover {
 }
 
 #side-bar {
+    min-height: 100vh;
     flex-grow: 1;
     border-left: 1px solid #727272;
 }
@@ -512,6 +513,11 @@ td img {
     border: solid 1px #dcdcdc;
     text-align: center;
     display: block;
+}
+
+.error_message {
+    display: inline;
+    color: red;
 }
 
 

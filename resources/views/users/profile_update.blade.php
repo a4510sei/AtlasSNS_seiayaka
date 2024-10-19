@@ -12,6 +12,7 @@
     $user = DB::table('users')->find($id);
     ?>
     {!! Form::open(['url' => '/users/profile_update', 'files' => true]) !!}
+    {{ Form::hidden('id', $id) }}
     @csrf
     <table class="profile_update_form">
       <tr>
@@ -56,7 +57,28 @@
         <td>{{ Form::file('images',['class' => 'img_update']) }}</td>
       </tr>
     </table>
-      <!-- 更新ボタン -->
+      <!-- バリデーションチェック -->
+    <div class="error_message">
+        @if ($errors->has('mail'))
+            <tr>
+              <th>ERROR</th>
+              @foreach($errors->get('mail') as $message)
+              <td> {{ $message }} </td>
+              @endforeach
+            </tr>
+        @endif
+        <br>
+        @if ($errors->has('password'))
+            <tr>
+              <th>ERROR</th>
+              @foreach($errors->get('password') as $message)
+              <td> {{ $message }} </td>
+              @endforeach
+            </tr>
+        @endif
+    </div>
+
+    <!-- 更新ボタン -->
     <div class="submit_btn">
       <br>
       <button type="submit" class="btn btn-primary">更新</button>
