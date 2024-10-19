@@ -610,6 +610,7 @@ td img {
 .up_post_btn {
     width: 50px;
     height: auto;
+
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -621,7 +622,8 @@ td img {
     margin-right: auto;
 }
 
-.modal img {
+.modal button {
+    background: none;
     width: 30px;
     height: 30px;
 }
